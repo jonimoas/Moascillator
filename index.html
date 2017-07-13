@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>MoaScillator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel='stylesheet' href='css/knobjs.css'>
+        <script src="js/knob.min.js"></script>
+        <script src="js/MainOscillator.js"></script>
+        <script src="js/knobs.js"></script>
+        <script src="js/qwerty-hancock.js"></script>
+        <script src="js/key.js"></script>
+        <script src="js/TabControl.js"></script>
+        <script type="text/javascript">
+            function load() {
+                createMain();
+                initKnobs();
+                createDoubler();
+                makeKey();
+            }
+        </script>
+    </head>
+
+    <body p align="center" bgcolor ="#000000" link="white" onload="load()">
+
+        <h1><font color = "#FFFFFF">MoaScillator</font></h1>
+
+        <FORM>
+            <INPUT TYPE="button" onClick="activateTab('page1')" VALUE="Simple Oscillator">
+            <INPUT TYPE="button" onClick="activateTab('page2')" VALUE="Piano">
+            <INPUT TYPE="button" onClick="activateTab('page3')" VALUE="Piano Effects">
+            <INPUT TYPE="button" onClick="activateTab('page4')" VALUE="Credits">
+        </FORM>
+
+        <br>
+        <div id="tabCtrl">
+
+            <div id="page1" style="display: block;">
+                <br>
+                <x-knobjs-knob id="freqknob"></x-knobjs-knob>
+                <x-knobjs-knob id="volknob"></x-knobjs-knob>
+                <x-knobjs-knob id="doublerknob"></x-knobjs-knob>
+                <br>
+                <font color="#FFFFFF">
+                <label for="freqinput">Frequency</label>
+                <label for="volinput">Volume</label>
+                <label for="doublerinput">Doubler</label>
+                <br>
+                <input id="freqinput" style="vertical-align:top;width: 100px; color:#FFFFFF; background-color: #000000;" >
+                <input id="volinput" style="vertical-align:top;width: 100px; color: #FFFFFF; background-color:#000000;">
+                <input id="doublerinput" style="vertical-align:top;width: 100px; color: #FFFFFF; background-color:#000000;">
+                </font>
+            </div>
+
+            <div id="page2" style="display: none;">   
+                <div class="container">
+                    <div style="align:center" id="keyboard"></div>
+                </div>
+            </div>
+
+            <div id="page3" style="display: none;">
+                <br>
+                <x-knobjs-knob id="musicvol"></x-knobjs-knob>
+                <x-knobjs-knob id="release"></x-knobjs-knob>
+                <x-knobjs-knob id="attack"></x-knobjs-knob>
+                <x-knobjs-knob id="vibrato"></x-knobjs-knob>
+                <x-knobjs-knob id="vibratoW"></x-knobjs-knob>
+                <br>
+                <font color="#FFFFFF">
+                <label for="musicvolinput">Volume</label>
+                <label for="releaseinput">Decay</label>
+                <label for="attackinput">Attack</label>
+                <label for="vibratoinput">Vibrato Speed</label>
+                <label for="vibratoinputW">Vibrato Width</label>
+                <br>
+                <input id="musicvolinput" style="vertical-align:top;width: 100px; color:#FFFFFF; background-color: #000000;" >
+                <input id="releaseinput" style="vertical-align:top;width: 100px; color:#FFFFFF; background-color: #000000;" >
+                <input id="attackinput" style="vertical-align:top;width: 100px; color:#FFFFFF; background-color: #000000;" >
+                <input id="vibratoinput" style="vertical-align:top;width: 100px; color:#FFFFFF; background-color: #000000;" >
+                <input id="vibratoinputW" style="vertical-align:top;width: 100px; color:#FFFFFF; background-color: #000000;" >
+
+                <FORM>
+                    <br>
+                    <INPUT TYPE="button" onClick="nextType()" VALUE="Next Sound">
+                    <INPUT TYPE="button" onClick="previousType()" VALUE="Previous Sound">
+                </FORM>
+                </font>
+            </div>
+
+            <div id="page4" style="display: none;">
+                <a href="https://github.com/russellmcc/knobjs">Javascript knobs</a><br>
+                <a href="http://stuartmemo.com/qwerty-hancock/">Querty Hancock keyboard</a><br>
+                <a href="http://stackoverflow.com/a/1029252">Tabbed Layout</a><br>
+                <a href="http://blog.chrislowis.co.uk/2013/06/17/synthesis-web-audio-api-envelopes.html">Synthesis with the WAAPI</a><br>
+                <a href="https://coderwall.com/p/h1jnmg/web-audio-api-modulating-audioparams-with-other-nodes">Modulate audio parameters with other nodes WAAPI</a><br>
+            </div>
+        </div>
+
+    </body>
+</html>
